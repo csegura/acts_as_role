@@ -15,7 +15,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "acts_as_role"
   gem.homepage = "http://github.com/csegura/acts_as_role"
   gem.license = "MIT"
-  gem.summary = %Q{Mini has_roles implementation}
+  gem.summary = %Q{Minimalist implementation of roles}
   gem.description = %Q{Use a field to store plain-text roles and manage them easily}
   gem.email = "csegura@ideseg.com"
   gem.authors = ["Carlos Segura"]

@@ -39,7 +39,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
-  s.summary = %q{Mini has_roles implementation}
+  s.summary = %q{Minimalist implementation of roles}
   s.test_files = [
     "spec/access_spec.rb",
     "spec/models/access.rb",
