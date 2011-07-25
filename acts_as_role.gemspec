@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "acts_as_role.gemspec",
     "lib/acts_as_role.rb",
     "lib/roles_validator.rb",
     "spec/access_spec.rb",
