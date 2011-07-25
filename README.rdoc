@@ -1,4 +1,4 @@
-= has_roles
+= acts_as_role
 
 This is a minimalist implementation of roles using a database column to store the roles in plain text. You can specify the role values and a default role that should be used when model is initialized.
 
@@ -9,6 +9,7 @@ This is a minimalist implementation of roles using a database column to store th
 Use role field to store the user roles. 
 
   user = User.new
+  user.role = "user"
   user.has_role?(:user) => true 
 
 Test roles using has_#{role_column.singularize}? or has_#{role_column.pluralize}? 
