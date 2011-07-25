@@ -63,7 +63,7 @@ Also you can use is_role to query a custom role
   access.is_manager? => true
 
 
-== Contributing to has_roles
+== Contributing to acts_as_roles
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
