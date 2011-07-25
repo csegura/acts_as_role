@@ -9,7 +9,7 @@ This is a minimalist implementation of roles using a database column to store th
 Use role field to store the user roles. 
 
   user = User.new
-  user.role = "user"
+  user.role => "user"
   user.has_role?(:user) => true 
 
 Test roles using has_#{role_column.singularize}? or has_#{role_column.pluralize}? 
@@ -19,7 +19,7 @@ Test roles using has_#{role_column.singularize}? or has_#{role_column.pluralize}
   user.add_roles :owner
   user.has_roles?(:user, :owner) => true
 
-Roles are stores using text
+Roles are stored using plain text
 
   user.roles => "user_owner"
 
@@ -27,7 +27,7 @@ Roles are stores using text
   user.has_role?(:user) => false
   user.roles => "owner"
 
-Validation - internally there is a roles validator
+Validation - internally there is a roles validator, you can add a :message to customize the validation message
 
   user.add_roles :not_specified
   user.valid? => false
@@ -40,7 +40,7 @@ You can use a different field with different syntax
   end
 
   access = Access.new
-  access.flag => nil
+  access.flag => "" (no default role specified)
   access.add_flags(:owner)
   access.has_flag?(:owner) => true
   access.add_flags(:manager)
@@ -49,6 +49,19 @@ You can use a different field with different syntax
   access.add_flags :invalid
   access.valid? => false
   access.errors[:flag] => "invalid role"
+
+Also you can use is_role to query a custom role
+
+  user = User.new
+  user.is_user? => true
+  user.is_admin? => false
+
+  access = Access.new
+  access.is_owner? => false
+  access.is_manager? => false
+  access.add_roles :manager
+  access.is_manager? => true
+
 
 == Contributing to has_roles
  

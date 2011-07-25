@@ -7,6 +7,7 @@ describe Access do
     end
     it "should have default role :Access" do
       @access.flag.should be_empty
+      @access.flag.should_not be_nil
     end
   end
   
