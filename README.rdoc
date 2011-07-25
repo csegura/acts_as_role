@@ -1,0 +1,66 @@
+= has_roles
+
+This is a minimalist implementation of roles using a database column to store the roles in plain text. You can specify the role values and a default role that should be used when model is initialized.
+
+  class User < ActiveRecord::Base
+    acts_as_role :role, :values = %w(admin owner user), :default => :user
+  end
+
+Use role field to store the user roles. 
+
+  user = User.new
+  user.has_role?(:user) => true 
+
+Test roles using has_#{role_column.singularize}? or has_#{role_column.pluralize}? 
+
+  user.has_roles?(:user, :admin) => false
+
+  user.add_roles :owner
+  user.has_roles?(:user, :owner) => true
+
+Roles are stores using text
+
+  user.roles => "user_owner"
+
+  user.remove_roles(:user)
+  user.has_role?(:user) => false
+  user.roles => "owner"
+
+Validation - internally there is a roles validator
+
+  user.add_roles :not_specified
+  user.valid? => false
+  user.errors[:roles] => "contains an invalid role"
+
+You can use a different field with different syntax
+
+  class Access < ActiveRecord::Base  
+    acts_as_role :flag, :values => %w(owner manager employee), :message => "invalid role"
+  end
+
+  access = Access.new
+  access.flag => nil
+  access.add_flags(:owner)
+  access.has_flag?(:owner) => true
+  access.add_flags(:manager)
+  access.has_flags?(:manager, :owner) => true
+  access.flag => manager_owner
+  access.add_flags :invalid
+  access.valid? => false
+  access.errors[:flag] => "invalid role"
+
+== Contributing to has_roles
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+== Copyright
+
+Copyright (c) 2011 Carlos Segura. See LICENSE.txt for
+further details.
+
