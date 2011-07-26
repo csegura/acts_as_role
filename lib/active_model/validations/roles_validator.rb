@@ -2,6 +2,10 @@ require 'active_model/validations'
 
 module ActiveModel
   module Validations
+    extend ActiveSupport::Autoload
+    
+    autload 'RolesValidator'
+    
     class RolesValidator < ActiveModel::EachValidator 
       def initialize(options)
         @roles = options[:roles]
