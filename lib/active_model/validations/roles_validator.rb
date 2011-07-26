@@ -4,7 +4,7 @@ module ActiveModel
   module Validations
     extend ActiveSupport::Autoload
     
-    autload 'RolesValidator'
+    autoload 'RolesValidator'
     
     class RolesValidator < ActiveModel::EachValidator 
       def initialize(options)
