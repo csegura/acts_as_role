@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "acts_as_role.gemspec",
+    "lib/active_model/validations/roles_validator.rb",
     "lib/acts_as_role.rb",
     "spec/access_spec.rb",
     "spec/models/access.rb",
