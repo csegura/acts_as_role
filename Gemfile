@@ -3,11 +3,11 @@ source "http://rubygems.org"
 # Example:
 #   gem "activesupport", ">= 2.3.5"
 
-gem "rails", ">= 3.0.0"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development do
+  gem "rails", "~> 3.1.0.rc4"
   gem "rspec-rails"
   gem "sqlite3"
   gem "bundler", "~> 1.0.0"

@@ -1,3 +1,5 @@
+require 'active_model/validations/roles_validator'
+
 module ActsAsRole
 
   module Role
